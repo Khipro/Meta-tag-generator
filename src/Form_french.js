@@ -1,33 +1,22 @@
 import React from "react";
 
 export default class Form extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      Title: '',
-      Description: '',
-      Date_issued: '',
-      Date_modified: '',
-      Keyword: '',
-      Keyword_uncontrolled: '',
-      Url: ''
+  state = {
+    Title: "",
+    Description: "",
+    Date_issued: "",
+    Date_modified: "",
+    Keyword: "",
+    Keyword_uncontrolled: "",
+    Url: ""
   };
-}
 
-  change = e => 
-  {
+  change = e => {
     this.props.onChange({ [e.target.name]: e.target.value });
-    this.setState
-    ({
+    this.setState({
       [e.target.name]: e.target.value
     });
   };
-
-  myChangeHandler = (event) => {
-    let nam = event.target.name;
-    let val = event.target.value;
-    this.setState({[nam]: val});
-  }
 
   onSubmit = e => {
     e.preventDefault();
@@ -63,8 +52,7 @@ export default class Form extends React.Component {
           name="Title"
           placeholder="Title"
           value={this.state.Title}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
           
         />
         <br />
@@ -76,8 +64,7 @@ export default class Form extends React.Component {
           name="Description"
           placeholder="Description"
           value={this.state.Description}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
         />
         <br />
         <div>
@@ -86,10 +73,8 @@ export default class Form extends React.Component {
         <input
           name="Date_issued"
           placeholder="Date Issued"
-          type="date"
           value={this.state.Date_issued}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
         />
         <br />
         <div>
@@ -98,10 +83,8 @@ export default class Form extends React.Component {
         <input
           name="Date_modified"
           placeholder="Date Modified"
-          type="date"
           value={this.state.Date_modified}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
         />
         <br />
         <div>
@@ -111,8 +94,7 @@ export default class Form extends React.Component {
           name="Keyword"
           placeholder="Keyword (Controlled)"
           value={this.state.Keyword}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
         />
         <br />
         <div>
@@ -122,8 +104,7 @@ export default class Form extends React.Component {
           name="Keyword_uncontrolled"
           placeholder="Keyword (Uncontrolled)"
           value={this.state.Keyword_uncontrolled}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
         />
         <br />
         <div>
@@ -133,24 +114,12 @@ export default class Form extends React.Component {
           name="Url"
           placeholder="Url (Canonical)"
           value={this.state.Url}
-          //onChange={e => this.change(e)}
-          onChange={this.myChangeHandler}
+          onChange={e => this.change(e)}
         />
-        <div>
-         <h3>Generated Code</h3>
-        </div>
-        <p> 
-          {this.state.Title} 
-          <br /> {this.state.Description}
-          <br /> {this.state.Date_issued}
-          <br /> {this.state.Date_modified}
-          <br /> {this.state.Keyword}
-          <br /> {this.state.Keyword_uncontrolled}
-          <br /> {this.state.Url}
-        </p>
+        
         <br />
         <br />
-        <button onClick={e => this.myChangeHandler}>Clear</button>
+        <button onClick={e => this.onSubmit(e)}>Clear</button>
       </form>
     );
   }
