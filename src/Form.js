@@ -4,6 +4,7 @@ export default class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      Language:'',
       Title: '',
       Description: '',
       Date_issued: '',
@@ -14,14 +15,18 @@ export default class Form extends React.Component {
   };
 }
 
-  change = e => 
+  /*change = e => 
   {
     this.props.onChange({ [e.target.name]: e.target.value });
     this.setState
     ({
       [e.target.name]: e.target.value
     });
-  };
+  };*///Code to print in the app.js
+
+  setLanguage(event) {
+    console.log(event.target.value);
+  }
 
   myChangeHandler = (event) => {
     let nam = event.target.name;
@@ -33,6 +38,7 @@ export default class Form extends React.Component {
     e.preventDefault();
     // this.props.onSubmit(this.state);
     this.setState({
+      Language:"",
       Title: "",
       Description: "",
       Date_issued: "",
@@ -42,6 +48,7 @@ export default class Form extends React.Component {
       Url: ""
     });
     this.props.onChange({
+      Language:"",
       Title: "",
       Description: "",
       Date_issued: "",
@@ -56,6 +63,13 @@ export default class Form extends React.Component {
   render() {
     return (
       <form>
+        <div>
+         <h3>Language</h3>
+        </div>
+          <div onChange={this.myChangeHandler}>
+          <input type="radio" value={this.state.English} name="Language"/> English
+          <input type="radio" value={this.state.French} name="Language"/> French
+          </div>  
         <div>
          <h3>Title:*</h3>
         </div>
@@ -139,15 +153,49 @@ export default class Form extends React.Component {
         <div>
          <h3>Generated Code</h3>
         </div>
-        <p> 
-          {this.state.Title} 
-          <br /> {this.state.Description}
-          <br /> {this.state.Date_issued}
-          <br /> {this.state.Date_modified}
-          <br /> {this.state.Keyword}
-          <br /> {this.state.Keyword_uncontrolled}
-          <br /> {this.state.Url}
-        </p>
+         <br />&lt;head>
+         <br />&lt;meta charset="utf-8">
+         <br />&lt;!-- Web Experience Toolkit (WET) / Boîte à outils de l'expérience Web (BOEW)
+              wet-boew.github.io/wet-boew/License-en.htm / wet-boew.github.io/wet-boew/Licence-fr.htm -->
+          <br />&lt;link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+          <br />&lt;link rel="schema.dcterms" href="http://purl.org/dc/terms/" />
+          <br />
+          <br />&lt;title&gt;{this.state.Title}&lt;&#47;title&gt;
+          <br /> &lt;meta name=&quot;description&quot; content=&quot;{this.state.Description}&quot;&#47;&gt;
+          <br /> &lt;meta name=&quot;keywords&quot; content=&quot;{this.state.Keyword_uncontrolled}&quot;&#47;&gt;
+          <br /> &lt;meta name="dcterms.creator" content="Gouvernement du Canada, Statistique Canada" />
+          <br /> &lt;meta name="dcterms.title" content="{this.state.Title}" />
+          <br /> &lt;meta name="dcterms.issued" title="W3CDTF" content="{this.state.Date_issued}" />
+          <br /> &lt;meta name="dcterms.issued" title="W3CDTF" content="{this.state.Date_modified}" />
+          <br /> &lt;meta name="dcterms.subject" title="gcstc" content="{this.state.Keyword}" />
+          <br /> &lt;meta name="dcterms.language" title="ISO639-2" content="eng" />
+          <br /> &lt;meta content="width=device-width,initial-scale=1" name="viewport" />
+          <br /> &lt;link rel="canonical" href=" {this.state.Url}" />
+          <br /> 
+          <br /> &lt;meta property="dcterms:service" content="StatCan"/>
+          <br /> &lt;meta property="dcterms:accessRights" content="2"/>
+          <br /> 
+          <br /> &lt;!--[if gte IE 9 | !IE ]>&lt;!-->
+          <br /> &lt;link href="/wet-boew4b/assets/favicon.ico" rel="icon" type="image/x-icon">
+          <br /> &lt;link rel="stylesheet" href="/wet-boew4b/css/wet-boew.min.css">
+          <br /> &lt;script src="/wet-boew4b/js/jquery.min.js"><br /> &gt;script>
+          <br /> &lt;!--&lt;![endif]-->
+          <br />
+          <br /> &lt;link rel="stylesheet" href="/wet-boew4b/css/theme.min.css">
+          <br />
+          <br /> &lt;!--[if lt IE 9]>
+          <br /> &lt;link href="/wet-boew4b/assets/favicon.ico" rel="shortcut icon" />
+          <br /> &lt;link rel="stylesheet" href="/wet-boew4b/css/ie8-wet-boew.min.css" />
+          <br /> &lt;script src="/wet-boew4b/js/ie8-wet-boew.min.js">&lt;&#47;script>
+          <br /> &lt;![endif]-->
+          <br />
+          <br /> &lt;noscript><link rel="stylesheet" href="/wet-boew4b/css/noscript.min.css" />&lt;&#47;noscript>
+          <br /> &lt; script src="//assets.adobedtm.com/caacec67651710193d2331efef325107c23a0145/satelliteLib-c2082deaf69c358c641c5eb20f94b615dd606662.js">&lt;&#47;script>
+          <br />
+          <br /> &lt;script>dataLayer1 = [];&lt;&#47;script>
+          <br />
+          <br /> &lt;!-- CustomScriptsCSSEnd -->
+          <br /> &lt;&#47;head>
         <br />
         <br />
         <button onClick={e => this.myChangeHandler}>Clear</button>

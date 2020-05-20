@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: rgb(217, 221, 223);
+  background-color:#F9F9F9;
   font-family: Arial;
 }
 
@@ -21,7 +21,7 @@ div {
 }
 
 .App-header {
-  background-color: rgb(217, 221, 223);
+  background-color: #F9F9F9;
   height: 150px;
   padding: 20px;
   color: rgb(3, 3, 3);
@@ -50,6 +50,7 @@ input {
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+  
 }
 
 p { 
@@ -84,4 +85,16 @@ border-color:rgb(177, 1, 1);
   width:5px;
   height:auto;
   display:inline-block;
+}
+
+label {
+  position: relative;
+  vertical-align: left;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+input[type="radio"] {
+  margin-top: 1px;
+  vertical-align: top;
 }
