@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Form from "./Form";
+//import Formfr from "./From_french"
 
 
 class App extends Component {
@@ -18,11 +19,13 @@ class App extends Component {
     });
   };
 
+  
   render() {
     return (
       <div className="App">
         <header className="App-header">
         <h1>Meta tag generator</h1>
+        <hr></hr>
         <Form onChange={fields => this.onChange(fields)} />
         <p>
           {JSON.stringify(this.state.fields, null, 2)}
